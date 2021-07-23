@@ -4,6 +4,7 @@ import { MdAddShoppingCart } from 'react-icons/md';
 import { ProductList } from './styles';
 import { api } from '../../services/api';
 import { useCart } from '../../hooks/useCart';
+import { formatPrice } from '../../util/format';
 
 interface Product {
   id: number;
@@ -47,7 +48,7 @@ const Home = (): JSX.Element => {
         <li key={product.id}>
           <img src={product.image} alt={product.title} />
           <strong>{product.title}</strong>
-          <span>R$ {product.price}</span>
+          <span>{formatPrice(product.price)}</span>
           <button
             type="button"
             data-testid="add-product-button"
